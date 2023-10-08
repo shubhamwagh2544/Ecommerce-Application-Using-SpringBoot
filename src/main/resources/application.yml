@@ -1,0 +1,17 @@
+server:
+  port: 8008
+
+spring:
+  application:
+    name: Ecommerce Application
+  datasource:
+    url: jdbc:postgresql://localhost:5432/category
+    username: shubhamwagh
+    password: password
+    driver-class-name: org.postgresql.Driver
+  jpa:
+    hibernate:
+      ddl-auto: create-drop
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
