@@ -12,7 +12,7 @@ import java.util.List;
 @Service
 public class CategoryService {
     @Autowired
-    @Qualifier("jpa")
+    @Qualifier("category-jpa")
     private CategoryDao categoryDao;
 
     public String createCategory(CategoryRequest categoryRequest) {

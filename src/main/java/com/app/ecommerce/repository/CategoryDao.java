@@ -6,11 +6,11 @@ import com.app.ecommerce.model.CategoryRequest;
 import java.util.List;
 
 public interface CategoryDao {
-    public boolean existsCategoryByName(String categoryName);
-    public String createCategory(CategoryRequest categoryRequest);
-    public List<Category> getAllCategories();
-    public Category getCategory(Long categoryId);
-    public String updateCategory(Long categoryId, CategoryRequest categoryRequest);
-    public String deleteCategory(Long categoryId);
+    boolean existsCategoryByName(String categoryName);
+    String createCategory(CategoryRequest categoryRequest);
+    List<Category> getAllCategories();
+    Category getCategory(Long categoryId);
+    String updateCategory(Long categoryId, CategoryRequest categoryRequest);
+    String deleteCategory(Long categoryId);
 
 }

@@ -20,7 +20,7 @@ public class CategoryController {
     @Autowired
     private CategoryService categoryService;
 
-    @PostMapping("/create")
+    @PostMapping
     public ResponseEntity<ApiResponse> createCategory(@RequestBody CategoryRequest categoryRequest) {
         String message = categoryService.createCategory(categoryRequest);
         return new ResponseEntity<>(

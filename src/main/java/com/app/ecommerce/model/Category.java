@@ -3,6 +3,8 @@ package com.app.ecommerce.model;
 import lombok.*;
 
 import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @Table(name = "category")
@@ -36,9 +38,25 @@ public class Category {
     )
     private String description;
 
+    @OneToOne(
+            mappedBy = "category",
+            orphanRemoval = true,
+            cascade = CascadeType.ALL,
+            fetch = FetchType.EAGER
+    )
+    private Product product;
+
     public Category(String categoryName, String description) {
         this.categoryName = categoryName;
         this.description = description;
     }
+
+//    public void addProduct(Product product) {
+//        if (!this.products.contains(product)) this.products.add(product);
+//    }
+//
+//    public void removeProduct(Product product) {
+//        if (this.products.contains(product)) this.products.remove(product);
+//    }
 
 }

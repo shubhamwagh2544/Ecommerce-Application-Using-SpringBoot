@@ -8,7 +8,7 @@ import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
-@Repository("jpa")
+@Repository("category-jpa")
 public class CategoryDaoImplementation implements CategoryDao {
     @Autowired
     private CategoryRepository categoryRepository;
@@ -52,14 +52,15 @@ public class CategoryDaoImplementation implements CategoryDao {
     public String updateCategory(Long categoryId, CategoryRequest categoryRequest) {
         Category category = getCategory(categoryId);
         boolean flag = false;
-        if (categoryRequest.getCategoryName() != category.getCategoryName()) {
+        if (!categoryRequest.getCategoryName().equals(category.getCategoryName())) {
             category.setCategoryName(categoryRequest.getCategoryName());
             flag = true;
         }
-        if (categoryRequest.getDescription() != category.getDescription()) {
+        if (!categoryRequest.getDescription().equals(category.getDescription())) {
             category.setDescription(categoryRequest.getDescription());
             flag = true;
         }
+
         categoryRepository.save(category);
 
         return !flag ? "success : no change" : "success : updated";
