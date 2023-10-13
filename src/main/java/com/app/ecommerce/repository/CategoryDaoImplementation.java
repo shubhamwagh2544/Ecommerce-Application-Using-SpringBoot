@@ -1,6 +1,6 @@
 package com.app.ecommerce.repository;
 
-import com.app.ecommerce.exception.CategoryNotFoundException;
+import com.app.ecommerce.exception.ResourceNotFoundException;
 import com.app.ecommerce.model.Category;
 import com.app.ecommerce.model.CategoryRequest;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -42,8 +42,8 @@ public class CategoryDaoImplementation implements CategoryDao {
     public Category getCategory(Long categoryId) {
         return categoryRepository.findById(categoryId)
                 .orElseThrow(() ->
-                        new CategoryNotFoundException(
-                                String.format("category with id %s not found", categoryId)
+                        new ResourceNotFoundException(
+                                String.format("Category with id %s not found", categoryId)
                         )
                 );
     }
