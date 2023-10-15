@@ -38,25 +38,17 @@ public class Category {
     )
     private String description;
 
-    @OneToOne(
+    @OneToMany(
             mappedBy = "category",
-            orphanRemoval = true,
             cascade = CascadeType.ALL,
-            fetch = FetchType.EAGER
+            fetch = FetchType.EAGER                     //Keeping FetchType as EAGER is bad practise
+            //orphanRemoval = true
     )
-    private Product product;
+    private List<Product> products = new ArrayList<>();
 
     public Category(String categoryName, String description) {
         this.categoryName = categoryName;
         this.description = description;
     }
-
-//    public void addProduct(Product product) {
-//        if (!this.products.contains(product)) this.products.add(product);
-//    }
-//
-//    public void removeProduct(Product product) {
-//        if (this.products.contains(product)) this.products.remove(product);
-//    }
 
 }

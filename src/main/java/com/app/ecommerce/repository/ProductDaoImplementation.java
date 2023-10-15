@@ -1,6 +1,7 @@
 package com.app.ecommerce.repository;
 
 import com.app.ecommerce.exception.ResourceNotFoundException;
+import com.app.ecommerce.model.Category;
 import com.app.ecommerce.model.Product;
 import com.app.ecommerce.model.ProductRequest;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,11 +23,20 @@ public class ProductDaoImplementation implements ProductDao {
     @Override
     public String createProduct(ProductRequest productRequest) {
         Product product = new Product(
-                productRequest.productName(),
-                productRequest.description(),
-                productRequest.price(),
+                productRequest.getProductName(),
+                productRequest.getDescription(),
+                productRequest.getPrice(),
                 productRequest.isAvailable()
         );
+
+        if (productRequest.getCategoryRequest() != null) {
+            product.setCategory(
+                    new Category(
+                            productRequest.getCategoryRequest().getCategoryName(),
+                            productRequest.getCategoryRequest().getDescription()
+                    )
+            );
+        }
 
         productRepository.save(product);
         return "success";
@@ -54,28 +64,24 @@ public class ProductDaoImplementation implements ProductDao {
         Product product = getProduct(productId);
         boolean flag = false;
 
-        if (!product.getProductName().equals(productRequest.productName())) {
-            product.setProductName(productRequest.productName());
+        if (!product.getProductName().equals(productRequest.getProductName())) {
+            product.setProductName(productRequest.getProductName());
             flag = true;
         }
-        if (!product.getDescription().equals(productRequest.description())) {
-            product.setDescription(productRequest.description());
+        if (!product.getDescription().equals(productRequest.getDescription())) {
+            product.setDescription(productRequest.getDescription());
             flag = true;
         }
-        if (product.getPrice() != productRequest.price()) {
-            product.setPrice(productRequest.price());
+        if (product.getPrice() != productRequest.getPrice()) {
+            product.setPrice(productRequest.getPrice());
             flag = true;
         }
         if (product.isAvailable() != productRequest.isAvailable()) {
             product.setAvailable(productRequest.isAvailable());
             flag = true;
         }
-        if (product.getDateBought() != productRequest.dateBought()) {
-            product.setDateBought(productRequest.dateBought());
-            flag = true;
-        }
-        if (product.getCategory() != productRequest.category()) {
-            product.setCategory(productRequest.category());
+        if (product.getDateBought() != productRequest.getDateBought()) {
+            product.setDateBought(productRequest.getDateBought());
             flag = true;
         }
 

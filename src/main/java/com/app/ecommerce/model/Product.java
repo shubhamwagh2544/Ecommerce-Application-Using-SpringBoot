@@ -1,5 +1,6 @@
 package com.app.ecommerce.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.*;
 
 import javax.persistence.*;
@@ -55,15 +56,17 @@ public class Product {
     )
     private LocalDateTime dateBought;
 
-    @OneToOne
-//    @JoinColumn(
-//            name = "category_id",
-//            referencedColumnName = "categoryId",
-//            nullable = false,
-//            foreignKey = @ForeignKey(
-//                    name = "category_product_foreign_key"
-//            )
-//    )
+    @JsonIgnore
+    @ManyToOne(
+            cascade = CascadeType.ALL
+    )
+    @JoinColumn(
+            name = "category_id_fk",
+            referencedColumnName = "categoryId",
+            foreignKey = @ForeignKey(
+                    name = "category_product_fk"
+            )
+    )
     private Category category;
 
     public Product(String productName,
