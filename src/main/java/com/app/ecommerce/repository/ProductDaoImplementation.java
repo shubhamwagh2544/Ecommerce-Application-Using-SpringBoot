@@ -2,8 +2,9 @@ package com.app.ecommerce.repository;
 
 import com.app.ecommerce.exception.ResourceNotFoundException;
 import com.app.ecommerce.model.Category;
+import com.app.ecommerce.model_request.CategoryRequest;
 import com.app.ecommerce.model.Product;
-import com.app.ecommerce.model.ProductRequest;
+import com.app.ecommerce.model_request.ProductRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
@@ -83,6 +84,20 @@ public class ProductDaoImplementation implements ProductDao {
         if (product.getDateBought() != productRequest.getDateBought()) {
             product.setDateBought(productRequest.getDateBought());
             flag = true;
+        }
+
+        if (product.getCategory() != null && productRequest.getCategoryRequest() != null) {
+            Category category = product.getCategory();
+            CategoryRequest categoryRequest = productRequest.getCategoryRequest();
+            if (!categoryRequest.getCategoryName().equals(category.getCategoryName())) {
+                category.setCategoryName(categoryRequest.getCategoryName());
+                flag = true;
+            }
+            if (!categoryRequest.getDescription().equals(category.getDescription())) {
+                category.setDescription(categoryRequest.getDescription());
+                flag = true;
+            }
+            if (flag) product.setCategory(category);
         }
 
         return !flag ? "success : no change" : "success : updated";

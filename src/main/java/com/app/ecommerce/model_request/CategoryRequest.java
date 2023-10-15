@@ -1,4 +1,4 @@
-package com.app.ecommerce.model;
+package com.app.ecommerce.model_request;
 
 import lombok.Getter;
 import lombok.Setter;

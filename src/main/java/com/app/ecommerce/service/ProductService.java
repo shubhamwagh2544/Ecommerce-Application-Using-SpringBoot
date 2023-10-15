@@ -1,7 +1,7 @@
 package com.app.ecommerce.service;
 
 import com.app.ecommerce.model.Product;
-import com.app.ecommerce.model.ProductRequest;
+import com.app.ecommerce.model_request.ProductRequest;
 import com.app.ecommerce.repository.ProductDao;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;

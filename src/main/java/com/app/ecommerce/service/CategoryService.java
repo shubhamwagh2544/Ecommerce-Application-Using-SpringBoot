@@ -1,7 +1,7 @@
 package com.app.ecommerce.service;
 
 import com.app.ecommerce.model.Category;
-import com.app.ecommerce.model.CategoryRequest;
+import com.app.ecommerce.model_request.CategoryRequest;
 import com.app.ecommerce.repository.CategoryDao;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;

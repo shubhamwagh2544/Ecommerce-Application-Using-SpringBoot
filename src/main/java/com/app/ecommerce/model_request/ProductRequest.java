@@ -1,5 +1,6 @@
-package com.app.ecommerce.model;
+package com.app.ecommerce.model_request;
 
+import com.app.ecommerce.model_request.CategoryRequest;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;

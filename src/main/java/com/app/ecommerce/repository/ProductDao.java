@@ -1,8 +1,7 @@
 package com.app.ecommerce.repository;
 
-import com.app.ecommerce.model.Category;
 import com.app.ecommerce.model.Product;
-import com.app.ecommerce.model.ProductRequest;
+import com.app.ecommerce.model_request.ProductRequest;
 
 import java.util.List;
 

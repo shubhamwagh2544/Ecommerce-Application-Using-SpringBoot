@@ -1,7 +1,7 @@
 package com.app.ecommerce.controller;
 
 import com.app.ecommerce.model.Product;
-import com.app.ecommerce.model.ProductRequest;
+import com.app.ecommerce.model_request.ProductRequest;
 import com.app.ecommerce.service.ProductService;
 import com.app.ecommerce.utility.ApiResponse;
 import io.swagger.annotations.Api;
