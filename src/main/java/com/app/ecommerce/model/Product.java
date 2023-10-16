@@ -28,31 +28,36 @@ public class Product {
 
     @Column(
             name = "product_name",
-            nullable = false
+            nullable = false,
+            columnDefinition = "TEXT"
     )
     private String productName;
 
     @Column(
             name = "description",
-            nullable = false
+            nullable = false,
+            columnDefinition = "TEXT"
     )
     private String description;
 
     @Column(
             name = "price",
-            nullable = false
+            nullable = false,
+            columnDefinition = "DOUBLE PRECISION"
     )
     private double price;
 
     @Column(
             name = "is_available",
-            nullable = false
+            nullable = false,
+            columnDefinition = "BOOLEAN"
     )
     private boolean isAvailable;
 
     @Column(
             name = "date_bought",
-            nullable = false
+            nullable = false,
+            columnDefinition = "TIMESTAMP WITHOUT TIME ZONE"
     )
     private LocalDateTime dateBought;
 

@@ -28,13 +28,15 @@ public class Category {
 
     @Column(
             name = "category_name",
-            nullable = false
+            nullable = false,
+            columnDefinition = "TEXT"
     )
     private String categoryName;
 
     @Column(
             name = "description",
-            nullable = false
+            nullable = false,
+            columnDefinition = "TEXT"
     )
     private String description;
 
