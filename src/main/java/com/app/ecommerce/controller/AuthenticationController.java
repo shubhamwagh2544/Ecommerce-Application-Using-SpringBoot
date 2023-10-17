@@ -7,6 +7,7 @@ import com.app.ecommerce.model_request.UserSignInRequest;
 import com.app.ecommerce.service.UserService;
 import com.app.ecommerce.utility.ApiResponse;
 import io.swagger.annotations.Api;
+import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -21,6 +22,7 @@ import java.time.LocalDateTime;
 @RequestMapping("api/v1/auth")
 @Api(tags = "Authentication-Controller")
 public class AuthenticationController {
+
     @Autowired
     private UserService userService;
 

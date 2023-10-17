@@ -5,6 +5,7 @@ import com.app.ecommerce.model_request.CategoryRequest;
 import com.app.ecommerce.service.CategoryService;
 import com.app.ecommerce.utility.ApiResponse;
 import io.swagger.annotations.Api;
+import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -17,6 +18,7 @@ import java.util.List;
 @RequestMapping("api/v1/category")
 @Api(tags = "Category-Controller")
 public class CategoryController {
+
     @Autowired
     private CategoryService categoryService;
 
