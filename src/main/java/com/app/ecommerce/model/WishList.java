@@ -33,7 +33,10 @@ public class WishList {
     )
     @JoinColumn(
             name = "user_id",
-            referencedColumnName = "userId"
+            referencedColumnName = "userId",
+            foreignKey = @ForeignKey(
+                    name = "user_wishlist_fk"
+            )
     )
     private User user;
 
@@ -47,7 +50,10 @@ public class WishList {
     @ManyToOne
     @JoinColumn(
             name = "product_id",
-            referencedColumnName = "productId"
+            referencedColumnName = "productId",
+            foreignKey = @ForeignKey(
+                    name = "product_wishlist_fk"
+            )
     )
     private Product product;
 

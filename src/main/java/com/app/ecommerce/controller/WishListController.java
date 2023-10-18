@@ -1,9 +1,6 @@
 package com.app.ecommerce.controller;
 
 import com.app.ecommerce.model.Product;
-import com.app.ecommerce.model.User;
-import com.app.ecommerce.model.WishList;
-import com.app.ecommerce.service.TokenService;
 import com.app.ecommerce.service.WishListService;
 import com.app.ecommerce.utility.ApiResponse;
 import io.swagger.annotations.Api;
@@ -32,8 +29,8 @@ public class WishListController {
         );
     }
 
-    @GetMapping("/{token}")
-    public ResponseEntity<List<Product>> getWishList(@PathVariable String token) {
+    @GetMapping("/get")
+    public ResponseEntity<List<Product>> getWishList(@RequestParam("token") String token) {
         List<Product> products = wishListService.getWishList(token);
         return new ResponseEntity<>(products, HttpStatus.OK);
     }

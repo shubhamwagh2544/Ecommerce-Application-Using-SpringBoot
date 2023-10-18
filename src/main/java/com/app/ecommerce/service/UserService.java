@@ -1,7 +1,5 @@
 package com.app.ecommerce.service;
 
-import com.app.ecommerce.exception.AuthenticationFailedException;
-import com.app.ecommerce.exception.ResourceDuplicationException;
 import com.app.ecommerce.model.AuthenticationToken;
 import com.app.ecommerce.model.User;
 import com.app.ecommerce.model_request.UserRequest;
@@ -11,11 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 
-import javax.transaction.Transactional;
-import java.security.NoSuchAlgorithmException;
 import java.util.List;
-
-import static com.app.ecommerce.utility.HashPassword.hashPasswordWithMD5;
 
 @Service
 public class UserService {

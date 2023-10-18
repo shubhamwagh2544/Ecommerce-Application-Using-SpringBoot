@@ -2,8 +2,8 @@ package com.app.ecommerce.repository;
 
 import com.app.ecommerce.exception.ResourceNotFoundException;
 import com.app.ecommerce.model.Category;
-import com.app.ecommerce.model_request.CategoryRequest;
 import com.app.ecommerce.model.Product;
+import com.app.ecommerce.model_request.CategoryRequest;
 import com.app.ecommerce.model_request.ProductRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;

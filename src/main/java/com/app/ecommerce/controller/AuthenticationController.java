@@ -1,13 +1,12 @@
 package com.app.ecommerce.controller;
 
 import com.app.ecommerce.model.AuthenticationToken;
-import com.app.ecommerce.utility.SignInResponse;
 import com.app.ecommerce.model_request.UserRequest;
 import com.app.ecommerce.model_request.UserSignInRequest;
 import com.app.ecommerce.service.UserService;
 import com.app.ecommerce.utility.ApiResponse;
+import com.app.ecommerce.utility.SignInResponse;
 import io.swagger.annotations.Api;
-import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

@@ -1,6 +1,5 @@
 package com.app.ecommerce.model_request;
 
-import com.app.ecommerce.model_request.CategoryRequest;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.AllArgsConstructor;
 import lombok.Data;

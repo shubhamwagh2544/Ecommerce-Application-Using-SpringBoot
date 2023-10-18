@@ -66,7 +66,7 @@ public class Product {
             cascade = CascadeType.ALL
     )
     @JoinColumn(
-            name = "category_id_fk",
+            name = "category_id",
             referencedColumnName = "categoryId",
             foreignKey = @ForeignKey(
                     name = "category_product_fk"
