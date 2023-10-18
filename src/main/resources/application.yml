@@ -6,12 +6,12 @@ spring:
     name: Ecommerce Application
   datasource:
     url: jdbc:postgresql://localhost:5432/ecommerce
-    username: postgres
-    password: postgres
+    username:
+    password:
     driver-class-name: org.postgresql.Driver
   jpa:
     hibernate:
-      ddl-auto: create-drop
+      ddl-auto: update
     database: postgresql
     database-platform: org.hibernate.dialect.PostgreSQLDialect
     show-sql: true

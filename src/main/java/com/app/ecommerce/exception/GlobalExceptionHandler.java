@@ -1,9 +1,12 @@
 package com.app.ecommerce.exception;
 
+import com.app.ecommerce.utility.ApiResponse;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
+
+import java.time.LocalDateTime;
 
 @ControllerAdvice
 public class GlobalExceptionHandler {
@@ -23,9 +26,10 @@ public class GlobalExceptionHandler {
     }
 
     @ExceptionHandler(Exception.class)
-    public ResponseEntity<String> handleGlobalException(Exception e) {
+    public ResponseEntity<ApiResponse> handleGlobalException(Exception e) {
         return new ResponseEntity<>(
-                e.getMessage(), HttpStatus.INTERNAL_SERVER_ERROR
+                new ApiResponse(false, e.getMessage(), LocalDateTime.now()),
+                HttpStatus.INTERNAL_SERVER_ERROR
         );
     }
 
