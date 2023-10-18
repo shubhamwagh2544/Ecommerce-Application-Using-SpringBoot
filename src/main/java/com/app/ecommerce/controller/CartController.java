@@ -1,6 +1,8 @@
 package com.app.ecommerce.controller;
 
+import com.app.ecommerce.model.Cart;
 import com.app.ecommerce.model_request.CartRequest;
+import com.app.ecommerce.model_request.CartUpdateRequest;
 import com.app.ecommerce.service.CartService;
 import com.app.ecommerce.utility.ApiResponse;
 import com.app.ecommerce.utility.CartResponse;
@@ -38,12 +40,30 @@ public class CartController {
         );
     }
 
+    @GetMapping("/{cartId}")
+    public ResponseEntity<Cart> getCart(@PathVariable long cartId,
+                                        @RequestParam("token") String token) {
+        return new ResponseEntity<>(
+                cartService.getCartByCartId(cartId, token),
+                HttpStatus.OK
+        );
+    }
+
     @DeleteMapping("/cartId")
     public ResponseEntity<ApiResponse> deleteCart(@RequestParam("token") String token) {
         String message = cartService.deleteCartForUser(token);
         return new ResponseEntity<>(
                 new ApiResponse(true, message, LocalDateTime.now()),
                 HttpStatus.OK
+        );
+    }
+
+    @PutMapping("/update")
+    public ResponseEntity<ApiResponse> updateCart(@RequestBody CartUpdateRequest updateRequest,
+                                                  @RequestParam("token") String token) {
+        String message = cartService.updateCart(updateRequest, token);
+        return new ResponseEntity<>(
+                new ApiResponse(true, message, LocalDateTime.now()), HttpStatus.OK
         );
     }
 }

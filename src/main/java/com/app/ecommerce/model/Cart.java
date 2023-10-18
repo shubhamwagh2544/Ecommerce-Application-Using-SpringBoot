@@ -35,7 +35,7 @@ public class Cart {
     )
     private LocalDateTime createdAt;
 
-    @ManyToOne(targetEntity = Product.class)
+    @ManyToOne(targetEntity = Product.class, cascade = CascadeType.ALL)
     @JoinColumn(
             name = "product_id",
             referencedColumnName = "productId",

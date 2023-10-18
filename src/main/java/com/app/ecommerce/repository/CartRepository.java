@@ -11,7 +11,9 @@ import java.util.List;
 
 @Repository
 public interface CartRepository extends JpaRepository<Cart, Long> {
+    boolean existsByCartId(long cartId);
     boolean existsByProduct(Product product);
+    Cart findByProduct(Product product);
     List<Cart> findAllByUserOrderByCreatedAtDesc(User user);
     @Transactional
     void deleteAllByUser(User user);
